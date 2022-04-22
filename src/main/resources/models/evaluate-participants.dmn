@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0h7zujf" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.0.0">
+  <decision id="evaluateParticipantsDecision" name="Evaluate participants">
+    <decisionTable id="DecisionTable_1dj5tvz" hitPolicy="COLLECT">
+      <input id="Input_1" label="Meeting type">
+        <inputExpression id="InputExpression_1" typeRef="string">
+          <text>meetingType</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="Needed participants" name="neededParticipants" typeRef="string" />
+      <rule id="DecisionRule_1lm2ch6">
+        <inputEntry id="UnaryTests_0ozcw9l">
+          <text>"COPIL"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_17hzkib">
+          <text>"Christophe"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1u7h8t9">
+        <inputEntry id="UnaryTests_1eaz59s">
+          <text>"COPIL"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ooco67">
+          <text>"Tobias"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_02hlq50">
+        <inputEntry id="UnaryTests_16gq0f4">
+          <text>"COPIL"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_15cmctc">
+          <text>"Falko"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_10fxym3">
+        <inputEntry id="UnaryTests_0rjudmb">
+          <text>"COPROJ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_195dvan">
+          <text>"Marco"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_058iypx">
+        <inputEntry id="UnaryTests_0rtro73">
+          <text>"COPROJ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0x7rncv">
+          <text>"Tobias"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1xdwat1">
+        <inputEntry id="UnaryTests_0mr1hdd">
+          <text>"COPROJ"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1s6krbj">
+          <text>"Thomas"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_18sfiwx">
+        <inputEntry id="UnaryTests_15nr2jf">
+          <text>"Standup"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1o3k8fg">
+          <text>"Tobias"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ndtiiv">
+        <inputEntry id="UnaryTests_1srj7ab">
+          <text>"Standup"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_09s5vsy">
+          <text>"Gustavo"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0zmh69w">
+        <inputEntry id="UnaryTests_082htnh">
+          <text>"Standup"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1h55sv6">
+          <text>"Kevin"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0kp3sr4">
+        <inputEntry id="UnaryTests_1lg6g6a">
+          <text>"Standup"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0ni94n5">
+          <text>"Anton"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_13j3muq">
+        <inputEntry id="UnaryTests_0fxun6j">
+          <text>"Coffee"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_05v5g3e">
+          <text>"Christophe"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0qwki7q">
+        <inputEntry id="UnaryTests_08rno5z">
+          <text>"Coffee"</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1t8kevw">
+          <text>"Stefan"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="evaluateParticipantsDecision">
+        <dc:Bounds height="80" width="180" x="160" y="100" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

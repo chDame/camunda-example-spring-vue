@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.12.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="1.3.0" camunda:diagramRelationId="475a48ba-16fe-4383-aebd-027e215b89b2">
+  <bpmn:process id="MeetingNoteProcess" name="Meeting Notes" isExecutable="true">
+    <bpmn:extensionElements>
+      <zeebe:userTaskForm id="userTaskForm_0v0fsur">{
+  "schemaVersion": 4,
+  "components": [
+    {
+      "text": "# Notes",
+      "type": "text",
+      "id": "Field_0uyavzu"
+    },
+    {
+      "label": "Notes from",
+      "type": "textfield",
+      "id": "Field_0p3dwx5",
+      "key": "expectedParticipant",
+      "disabled": true
+    },
+    {
+      "label": "Notes",
+      "type": "textfield",
+      "id": "Field_0a0c404",
+      "key": "note"
+    },
+    {
+      "action": "submit",
+      "label": "Send notes",
+      "type": "button",
+      "id": "Field_1cecubl",
+      "key": "field_0i6k5eu"
+    }
+  ],
+  "type": "default",
+  "id": "Form_131an01",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.0.0-nightly.20220405"
+  }
+}</zeebe:userTaskForm>
+    </bpmn:extensionElements>
+    <bpmn:startEvent id="StartEvent_1" name="Document requested">
+      <bpmn:outgoing>Flow_0z7fyf6</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0z7fyf6" sourceRef="StartEvent_1" targetRef="Activity_04xulz1" />
+    <bpmn:userTask id="Activity_04xulz1" name="Take Notes">
+      <bpmn:extensionElements>
+        <zeebe:assignmentDefinition assignee="= expectedParticipant" />
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:userTaskForm_0v0fsur" />
+        <zeebe:ioMapping>
+          <zeebe:input source="= meetingType" target="meetingType" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0z7fyf6</bpmn:incoming>
+      <bpmn:outgoing>Flow_1ci1xcm</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:endEvent id="Event_0kurbwk">
+      <bpmn:incoming>Flow_1ci1xcm</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_1ci1xcm" sourceRef="Activity_04xulz1" targetRef="Event_0kurbwk" />
+  </bpmn:process>
+  <bpmn:error id="Error_0fwf97y" name="Error_Document_Not_Recognized" errorCode="Error_Document_Not_Recognized" />
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="MeetingNoteProcess">
+      <bpmndi:BPMNEdge id="Flow_1ci1xcm_di" bpmnElement="Flow_1ci1xcm">
+        <di:waypoint x="400" y="120" />
+        <di:waypoint x="492" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0z7fyf6_di" bpmnElement="Flow_0z7fyf6">
+        <di:waypoint x="218" y="120" />
+        <di:waypoint x="300" y="120" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="182" y="102" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="175" y="145" width="51" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0mfyi2z_di" bpmnElement="Activity_04xulz1">
+        <dc:Bounds x="300" y="80" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0kurbwk_di" bpmnElement="Event_0kurbwk">
+        <dc:Bounds x="492" y="102" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

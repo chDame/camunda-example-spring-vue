@@ -1,0 +1,52 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.6'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'io.camunda'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()
+}
+ext {
+    
+}
+
+dependencies {
+	implementation fileTree(dir: 'libs', include: '*.jar')
+
+	def opensagresVersion = "2.0.3"
+    def zeebeVersion = "8.0.0"
+	implementation "org.springframework.boot:spring-boot-starter"
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	implementation "org.springdoc:springdoc-openapi-ui:1.6.4"
+	
+	/*zeebe*/
+	implementation "io.camunda:zeebe-client-java:${zeebeVersion}"
+	implementation "io.camunda:spring-zeebe-starter:${zeebeVersion}"
+	
+	/*docx templating and pdf*/
+	implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.template:${opensagresVersion}"
+	implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.template.velocity:${opensagresVersion}"
+	implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.document:${opensagresVersion}"
+	implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.document.docx:${opensagresVersion}"
+	implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.converter.docx.xwpf:${opensagresVersion}"
+	implementation "fr.opensagres.xdocreport:fr.opensagres.xdocreport.itext.extension:${opensagresVersion}"
+	
+	/*mailing*/
+	//implementation "com.sun.mail:javax.mail:1.6.2"
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	
+	/*test*/
+	testImplementation "org.springframework.boot:spring-boot-starter-test"
+	testImplementation "io.camunda:zeebe-process-test-extension:${zeebeVersion}"
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
